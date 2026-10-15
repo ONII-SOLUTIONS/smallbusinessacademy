@@ -1,0 +1,26 @@
+backend:
+  name: git-gateway
+  branch: main # Or master, matching your repository branch
+
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
+
+collections:
+  - name: "settings"
+    label: "Site Settings"
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: "promotions"
+        label: "Homepage Promotional Pop-Up"
+        file: "data/promotions.json"
+        fields:
+          - { label: "Enable Pop-Up Modal", name: "active", widget: "boolean", default: true }
+          - { label: "Badge Header Text", name: "badgeText", widget: "string", default: "Official SBA Notice" }
+          - { label: "Announcement Title", name: "title", widget: "string", default: "2026 Skills Training & Trade Intake Open!" }
+          - { label: "Promotional Poster Image", name: "posterImageUrl", widget: "image" }
+          - { label: "Image Alt Description", name: "altText", widget: "string", default: "SBA Special Intake Notice" }
+          - { label: "Modal Message / Details", name: "description", widget: "text" }
+          - { label: "Button Text", name: "actionText", widget: "string", default: "Enquire / Apply Now" }
+          - { label: "Button Link", name: "actionLink", widget: "string", default: "#contact" }
