@@ -31,7 +31,7 @@
   <!-- Lucide Vector Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
 
-  <!-- Netlify Identity Widget (Required for CMS Invites & Admin Login) -->
+  <!-- Netlify Identity Widget -->
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
   <style>
@@ -41,294 +41,197 @@
     }
     .animate-fade-in { animation: fadeIn 0.25s ease-out forwards; }
 
-    /* Continuous Wheel Spinning Animation (Non-stopping) */
     @keyframes spinWheel {
       from { transform: rotate(0deg); }
       to { transform: rotate(360deg); }
     }
-    /* Counter Rotation to Keep Icons Upright while Orbiting */
     @keyframes counterSpin {
       from { transform: rotate(0deg); }
       to { transform: rotate(-360deg); }
     }
 
-    .wheel-orbit {
-      animation: spinWheel 25s linear infinite;
-    }
+    .wheel-orbit { animation: spinWheel 25s linear infinite; }
+    .wheel-counter-rotate { animation: counterSpin 25s linear infinite; }
 
-    .wheel-counter-rotate {
-      animation: counterSpin 25s linear infinite;
-    }
-
-    /* Subtle Bottom Feathering Only (Keeps body & hands fully solid) */
     .subtle-bottom-fade {
       -webkit-mask-image: linear-gradient(to bottom, black 0%, black 88%, transparent 100%);
       mask-image: linear-gradient(to bottom, black 0%, black 88%, transparent 100%);
     }
   </style>
 </head>
-<body class="bg-sba-light text-sba-darkgray font-sans antialiased selection:bg-sba-burgundy selection:text-white">
+<body class="bg-sba-light text-sba-darkgray font-sans antialiased selection:bg-sba-burgundy selection:text-white overflow-x-hidden">
 
   <!-- TOP INFORMATION BAR -->
-  <header class="bg-sba-black text-white text-xs py-2.5 px-4 border-b border-gray-800">
-    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
-      <div class="flex flex-wrap items-center justify-center sm:justify-start gap-4">
-        <a href="tel:0313291297" class="flex items-center gap-1.5 hover:text-sba-burgundy transition">
-          <i data-lucide="phone" class="w-3.5 h-3.5 text-sba-burgundy"></i> 031 329 1297
+  <header class="bg-sba-black text-white text-xs py-2 px-3 sm:px-4 border-b border-gray-800">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-1.5 text-center sm:text-left">
+      <div class="flex flex-wrap items-center justify-center sm:justify-start gap-3">
+        <a href="tel:0313291297" class="flex items-center gap-1 hover:text-sba-burgundy transition">
+          <i data-lucide="phone" class="w-3 h-3 text-sba-burgundy"></i> 031 329 1297
         </a>
-        <a href="https://wa.me/27837778392" target="_blank" class="flex items-center gap-1.5 hover:text-sba-burgundy transition">
-          <i data-lucide="message-square" class="w-3.5 h-3.5 text-sba-burgundy"></i> WhatsApp: 083 777 8392
+        <a href="https://wa.me/27837778392" target="_blank" class="flex items-center gap-1 hover:text-sba-burgundy transition">
+          <i data-lucide="message-square" class="w-3 h-3 text-sba-burgundy"></i> WhatsApp: 083 777 8392
         </a>
-        <a href="mailto:info@smallbusinessacademy.org.za" class="hidden md:flex items-center gap-1.5 hover:text-sba-burgundy transition">
-          <i data-lucide="mail" class="w-3.5 h-3.5 text-sba-burgundy"></i> info@smallbusinessacademy.org.za
+        <a href="mailto:info@smallbusinessacademy.org.za" class="hidden md:flex items-center gap-1 hover:text-sba-burgundy transition">
+          <i data-lucide="mail" class="w-3 h-3 text-sba-burgundy"></i> info@smallbusinessacademy.org.za
         </a>
       </div>
       <div>
-        <span class="text-gray-300 font-semibold uppercase tracking-wider text-[11px]">Accredited Training & Trade Test Centre</span>
+        <span class="text-gray-300 font-semibold uppercase tracking-wider text-[10px]">Accredited Training & Trade Test Centre</span>
       </div>
     </div>
   </header>
 
-  <!-- MAIN NAVIGATION BAR WITH ENLARGED LOGO & EXACT TAGLINE -->
+  <!-- MAIN NAVIGATION BAR -->
   <nav class="sticky top-0 z-40 bg-white shadow-md border-b border-gray-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-28 sm:h-32">
-      <!-- Logo & Tagline Stack -->
-      <div class="flex flex-col py-2">
+    <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 flex justify-between items-center h-20 sm:h-24">
+      <div class="flex flex-col py-1">
         <a href="#" class="flex items-center">
-          <img src="./logo.png" alt="Small Business Academy Logo" class="h-14 sm:h-18 md:h-20 w-auto object-contain transition-transform hover:scale-105">
+          <img src="./logo.png" alt="Small Business Academy Logo" class="h-10 sm:h-14 w-auto object-contain transition-transform hover:scale-105">
         </a>
-        <span class="text-[10px] sm:text-xs font-semibold text-gray-700 italic tracking-wide mt-1">
-          “Constructing <span class="uppercase font-bold">YOUR</span> brighter future <span class="uppercase font-bold">TOGETHER WITH US</span>”
+        <span class="text-[9px] sm:text-[11px] font-semibold text-gray-700 italic tracking-wide mt-0.5">
+          “Constructing <span class="uppercase font-bold">YOUR</span> brighter future”
         </span>
       </div>
 
-      <!-- Desktop Nav Links -->
-      <div class="hidden lg:flex items-center space-x-7 font-medium text-sm text-gray-700">
+      <!-- Desktop Links -->
+      <div class="hidden lg:flex items-center space-x-5 font-medium text-xs md:text-sm text-gray-700">
         <a href="#home" class="text-sba-burgundy font-bold">Home</a>
         <a href="#about" class="hover:text-sba-burgundy transition">About Us</a>
-        <a href="#offerings" class="hover:text-sba-burgundy transition">Offerings & Pathways</a>
-        <a href="#graduates" class="hover:text-sba-burgundy transition">Our Graduates</a>
+        <a href="#leadership" class="hover:text-sba-burgundy transition">Leadership</a>
+        <a href="#offerings" class="hover:text-sba-burgundy transition">Offerings</a>
+        <a href="#graduates" class="hover:text-sba-burgundy transition">Graduates</a>
         <a href="#partners" class="hover:text-sba-burgundy transition">Partners</a>
-        <a href="#contact" class="hover:text-sba-burgundy transition">Contact Us</a>
+        <a href="#contact" class="hover:text-sba-burgundy transition">Contact</a>
       </div>
 
-      <!-- Header Action Buttons (Profile PDF + Download Brochure) -->
-      <div class="flex items-center gap-2 sm:gap-3">
-        <a id="nav-download-brochure" href="#" download class="hidden sm:inline-flex items-center gap-1.5 bg-gray-100 hover:bg-gray-200 text-gray-800 text-xs md:text-sm font-semibold py-3 px-4 rounded-md shadow transition border border-gray-300">
-          <i data-lucide="download" class="w-4 h-4 text-sba-burgundy"></i>
-          <span>Download Brochure</span>
+      <!-- Optimized Slim Action Buttons -->
+      <div class="flex items-center gap-2">
+        <a id="nav-download-brochure" href="#" download class="inline-flex items-center gap-1 bg-gray-100 hover:bg-gray-200 text-gray-800 text-[11px] sm:text-xs font-semibold py-2 px-2.5 sm:px-3 rounded shadow-sm transition border border-gray-300">
+          <i data-lucide="download" class="w-3.5 h-3.5 text-sba-burgundy"></i>
+          <span class="hidden sm:inline">Brochure</span>
         </a>
-        <a href="./SBA%202026%20BUSINESS%20PROFILE.pdf" download="SBA 2026 BUSINESS PROFILE.pdf" class="inline-flex items-center gap-2 bg-sba-burgundy hover:bg-sba-darkburgundy text-white text-xs md:text-sm font-semibold py-3 px-5 rounded-md shadow transition">
-          <i data-lucide="file-text" class="w-4 h-4"></i>
-          <span>Business Profile PDF</span>
+        <a href="./SBA%202026%20BUSINESS%20PROFILE.pdf" download="SBA 2026 BUSINESS PROFILE.pdf" class="inline-flex items-center gap-1 bg-sba-burgundy hover:bg-sba-darkburgundy text-white text-[11px] sm:text-xs font-semibold py-2 px-2.5 sm:px-3 rounded shadow transition">
+          <i data-lucide="file-text" class="w-3.5 h-3.5"></i>
+          <span>Profile PDF</span>
         </a>
+        
+        <!-- Mobile Menu Toggle Button -->
+        <button onclick="toggleMobileMenu()" class="lg:hidden p-2 text-gray-700 hover:text-sba-burgundy focus:outline-none">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
       </div>
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-gray-200 px-4 pt-2 pb-4 space-y-2 text-sm font-medium">
+      <a href="#home" onclick="toggleMobileMenu()" class="block py-2 text-sba-burgundy font-bold border-b border-gray-100">Home</a>
+      <a href="#about" onclick="toggleMobileMenu()" class="block py-2 text-gray-700 border-b border-gray-100">About Us</a>
+      <a href="#leadership" onclick="toggleMobileMenu()" class="block py-2 text-gray-700 border-b border-gray-100">Leadership</a>
+      <a href="#offerings" onclick="toggleMobileMenu()" class="block py-2 text-gray-700 border-b border-gray-100">Offerings & Pathways</a>
+      <a href="#graduates" onclick="toggleMobileMenu()" class="block py-2 text-gray-700 border-b border-gray-100">Our Graduates</a>
+      <a href="#partners" onclick="toggleMobileMenu()" class="block py-2 text-gray-700 border-b border-gray-100">Partners</a>
+      <a href="#contact" onclick="toggleMobileMenu()" class="block py-2 text-gray-700">Contact Us</a>
     </div>
   </nav>
 
-  <!-- HERO SECTION: FULL-SIZE GRADUATE IMAGE WITH REDUCED BOTTOM-ONLY FADE -->
-  <section id="home" class="relative bg-white text-gray-900 py-16 md:py-24 px-4 border-b border-gray-200 overflow-hidden">
-    <div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-6 items-center">
-      
-      <!-- Left Column: Hero Content (5 cols) -->
-      <div class="lg:col-span-5 space-y-6 z-10">
-        <span class="inline-block bg-sba-burgundy/10 text-sba-burgundy text-xs font-bold px-3.5 py-1 rounded-full border border-sba-burgundy/25 uppercase tracking-wide">
+  <!-- HERO SECTION -->
+  <section id="home" class="relative bg-white text-gray-900 py-12 md:py-20 px-4 border-b border-gray-200 overflow-hidden">
+    <div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-8 items-center">
+      <div class="lg:col-span-5 space-y-5 z-10 text-center lg:text-left">
+        <span class="inline-block bg-sba-burgundy/10 text-sba-burgundy text-xs font-bold px-3 py-1 rounded-full border border-sba-burgundy/25 uppercase tracking-wide">
           SETA & QCTO Accredited Institution
         </span>
         <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight text-gray-900">
           Constructing <span class="uppercase">YOUR</span> brighter future <span class="text-sba-burgundy uppercase">TOGETHER WITH US</span>
         </h1>
-        <p class="text-gray-600 text-base md:text-lg leading-relaxed">
-          Competence = Artisan Trade and Construction Skills + Entrepreneurship. Empowering South Africans through hands-on technical trades, OHS certification, and emerging contractor development.
+        <p class="text-gray-600 text-sm sm:text-base leading-relaxed">
+          Competence = Artisan Trade and Construction Skills + Entrepreneurship. Empowering South Africans through hands-on technical trades, OHS certification, and emerging contractor development in Durban CBD.
         </p>
 
-        <div class="flex flex-wrap gap-4 pt-2">
-          <a href="#offerings" class="bg-sba-burgundy hover:bg-sba-darkburgundy text-white font-semibold px-6 py-3 rounded-md transition shadow-lg text-sm flex items-center gap-2">
+        <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-3 pt-2">
+          <a href="#offerings" class="bg-sba-burgundy hover:bg-sba-darkburgundy text-white font-semibold px-6 py-3 rounded-md transition shadow-lg text-sm flex items-center justify-center gap-2">
             <span>Explore Course Offerings</span>
             <i data-lucide="arrow-right" class="w-4 h-4"></i>
           </a>
-          <a href="./SBA%202026%20BUSINESS%20PROFILE.pdf" download="SBA 2026 BUSINESS PROFILE.pdf" class="border border-gray-300 hover:bg-gray-100 text-gray-800 font-semibold px-6 py-3 rounded-md transition flex items-center gap-2 text-sm shadow-sm">
+          <a href="./SBA%202026%20BUSINESS%20PROFILE.pdf" download="SBA 2026 BUSINESS PROFILE.pdf" class="border border-gray-300 hover:bg-gray-100 text-gray-800 font-semibold px-6 py-3 rounded-md transition flex items-center justify-center gap-2 text-sm shadow-sm">
             <i data-lucide="download" class="w-4 h-4 text-sba-burgundy"></i> Profile PDF
           </a>
         </div>
       </div>
 
-      <!-- Right Area: Orbiting Wheel + Graduate Photo with Reduced Fade -->
-      <div id="wheel-section" class="lg:col-span-7 relative flex flex-col md:flex-row items-center justify-between gap-4 py-4 min-h-[32rem]">
-        
-        <!-- Continuous Orbiting Wheel -->
-        <div class="relative w-80 h-80 sm:w-[26rem] sm:h-[26rem] rounded-full border-4 border-sba-burgundy flex items-center justify-center shadow-2xl bg-white/95 backdrop-blur-sm overflow-hidden z-20 flex-shrink-0">
-          
-          <!-- Orbit Ring with Floating Nodes -->
+      <div id="wheel-section" class="lg:col-span-7 relative flex flex-col md:flex-row items-center justify-center lg:justify-between gap-6 py-4">
+        <div class="relative w-72 h-72 sm:w-80 sm:h-80 rounded-full border-4 border-sba-burgundy flex items-center justify-center shadow-2xl bg-white/95 backdrop-blur-sm overflow-hidden z-20 flex-shrink-0">
           <div class="wheel-orbit absolute inset-0 w-full h-full rounded-full">
-            <!-- Node 1: Top (Construction Trades) -->
-            <div class="absolute top-4 left-1/2 -translate-x-1/2">
-              <button onclick="selectWheelNode(0)" class="wheel-node w-14 h-14 bg-sba-burgundy rounded-full flex items-center justify-center text-white shadow-lg transition transform hover:scale-125 z-30" title="Construction Trades">
-                <div class="wheel-counter-rotate">
-                  <i data-lucide="hammer" class="w-6 h-6"></i>
-                </div>
+            <div class="absolute top-3 left-1/2 -translate-x-1/2">
+              <button onclick="selectWheelNode(0)" class="wheel-node w-12 h-12 bg-sba-burgundy rounded-full flex items-center justify-center text-white shadow-lg transition transform hover:scale-115 z-30">
+                <div class="wheel-counter-rotate"><i data-lucide="hammer" class="w-5 h-5"></i></div>
               </button>
             </div>
-
-            <!-- Node 2: Right (Health & Safety) -->
-            <div class="absolute top-1/2 right-4 -translate-y-1/2">
-              <button onclick="selectWheelNode(1)" class="wheel-node w-14 h-14 bg-white border-2 border-sba-burgundy rounded-full flex items-center justify-center text-sba-burgundy shadow-lg transition transform hover:scale-125 z-30" title="Health & Safety (OHS)">
-                <div class="wheel-counter-rotate">
-                  <i data-lucide="shield-check" class="w-6 h-6"></i>
-                </div>
+            <div class="absolute top-1/2 right-3 -translate-y-1/2">
+              <button onclick="selectWheelNode(1)" class="wheel-node w-12 h-12 bg-white border-2 border-sba-burgundy rounded-full flex items-center justify-center text-sba-burgundy shadow-lg transition transform hover:scale-115 z-30">
+                <div class="wheel-counter-rotate"><i data-lucide="shield-check" class="w-5 h-5"></i></div>
               </button>
             </div>
-
-            <!-- Node 3: Bottom (Practitioner Training) -->
-            <div class="absolute bottom-4 left-1/2 -translate-x-1/2">
-              <button onclick="selectWheelNode(2)" class="wheel-node w-14 h-14 bg-white border-2 border-sba-burgundy rounded-full flex items-center justify-center text-sba-burgundy shadow-lg transition transform hover:scale-125 z-30" title="Practitioner Training">
-                <div class="wheel-counter-rotate">
-                  <i data-lucide="graduation-cap" class="w-6 h-6"></i>
-                </div>
+            <div class="absolute bottom-3 left-1/2 -translate-x-1/2">
+              <button onclick="selectWheelNode(2)" class="wheel-node w-12 h-12 bg-white border-2 border-sba-burgundy rounded-full flex items-center justify-center text-sba-burgundy shadow-lg transition transform hover:scale-115 z-30">
+                <div class="wheel-counter-rotate"><i data-lucide="graduation-cap" class="w-5 h-5"></i></div>
               </button>
             </div>
-
-            <!-- Node 4: Left (Entrepreneurship) -->
-            <div class="absolute top-1/2 left-4 -translate-y-1/2">
-              <button onclick="selectWheelNode(3)" class="wheel-node w-14 h-14 bg-white border-2 border-sba-burgundy rounded-full flex items-center justify-center text-sba-burgundy shadow-lg transition transform hover:scale-125 z-30" title="Entrepreneurship">
-                <div class="wheel-counter-rotate">
-                  <i data-lucide="briefcase" class="w-6 h-6"></i>
-                </div>
+            <div class="absolute top-1/2 left-3 -translate-y-1/2">
+              <button onclick="selectWheelNode(3)" class="wheel-node w-12 h-12 bg-white border-2 border-sba-burgundy rounded-full flex items-center justify-center text-sba-burgundy shadow-lg transition transform hover:scale-115 z-30">
+                <div class="wheel-counter-rotate"><i data-lucide="briefcase" class="w-5 h-5"></i></div>
               </button>
             </div>
           </div>
 
-          <!-- Fixed Wheel Center Display -->
-          <div id="wheel-center" class="w-48 h-48 sm:w-56 sm:h-56 rounded-full bg-white border-2 border-sba-burgundy flex flex-col items-center justify-center text-center p-4 z-20 shadow-2xl">
-            <i id="wheel-icon" data-lucide="wrench" class="w-8 h-8 text-sba-burgundy mb-1"></i>
-            <h3 id="wheel-title" class="text-sm sm:text-base font-extrabold text-gray-900 leading-tight">Construction Trades</h3>
-            <p id="wheel-desc" class="text-[11px] sm:text-xs text-gray-600 mt-1 leading-relaxed max-w-[170px]">Electrician, Plumber, Welder, Bricklayer & Trade Testing.</p>
-          </div>
-
-        </div>
-
-        <!-- Graduate Photo with Subtle Bottom Fade -->
-        <div class="relative flex items-center justify-center md:justify-end z-10 flex-shrink-0">
-          <img src="./graduate.png" alt="SBA Graduate" class="subtle-bottom-fade h-[28rem] sm:h-[32rem] md:h-[34rem] lg:h-[36rem] w-auto object-contain filter contrast-105">
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- OFFICIAL COURSE OFFERINGS & CURRICULUM SECTION -->
-  <section id="offerings" class="py-16 px-4 max-w-7xl mx-auto">
-    <div class="text-center max-w-3xl mx-auto mb-12">
-      <h2 class="text-3xl font-extrabold text-gray-900 mb-3">Official Course Offerings & Pathways</h2>
-      <p class="text-gray-600">Structured qualifications and trade programs strictly matching SBA's official business profile.</p>
-    </div>
-
-    <!-- Qualification Pathways Banner -->
-    <div class="bg-gray-900 text-white p-6 rounded-lg mb-12 shadow">
-      <h3 class="text-lg font-bold text-sba-burgundy mb-4 flex items-center gap-2">
-        <i data-lucide="git-commit" class="w-5 h-5"></i> Training Pathways & Duration Options
-      </h3>
-      <div class="grid grid-cols-2 md:grid-cols-5 gap-3 text-center text-xs md:text-sm">
-        <div class="p-3 bg-gray-800 rounded border border-gray-700"><strong>Skills Gap Training:</strong><br><span class="text-gray-300">1–3 Days</span></div>
-        <div class="p-3 bg-gray-800 rounded border border-gray-700"><strong>Short Skills Programs:</strong><br><span class="text-gray-300">1–6 Months</span></div>
-        <div class="p-3 bg-gray-800 rounded border border-gray-700"><strong>Full Qualifications:</strong><br><span class="text-gray-300">Up to 1 Year</span></div>
-        <div class="p-3 bg-gray-800 rounded border border-gray-700"><strong>Apprenticeships:</strong><br><span class="text-gray-300">3 Years</span></div>
-        <div class="p-3 bg-gray-800 rounded border border-gray-700"><strong>ARPL Assessment:</strong><br><span class="text-gray-300">3–4 Months</span></div>
-      </div>
-    </div>
-
-    <!-- Official Four Pillar Curriculum Grid -->
-    <div class="grid md:grid-cols-2 gap-8">
-      <!-- 1. Construction Trades & Trade Test Centre -->
-      <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition">
-        <div class="flex items-center gap-3 mb-4 border-b pb-3">
-          <div class="p-3 bg-sba-burgundy/10 text-sba-burgundy rounded-lg"><i data-lucide="wrench" class="w-6 h-6"></i></div>
-          <div>
-            <h3 class="text-lg font-bold text-gray-900">1. School of Construction Trades & Trade Test Centre</h3>
-            <span class="text-xs text-gray-500 font-medium">Practical Workshop & Assessment Center</span>
+          <div id="wheel-center" class="w-40 h-40 sm:w-48 sm:h-48 rounded-full bg-white border-2 border-sba-burgundy flex flex-col items-center justify-center text-center p-3 z-20 shadow-2xl">
+            <i id="wheel-icon" data-lucide="wrench" class="w-7 h-7 text-sba-burgundy mb-1"></i>
+            <h3 id="wheel-title" class="text-xs sm:text-sm font-extrabold text-gray-900 leading-tight">Construction Trades</h3>
+            <p id="wheel-desc" class="text-[10px] sm:text-[11px] text-gray-600 mt-1 leading-snug max-w-[140px]">Electrician, Plumber, Welder, Bricklayer & Trade Testing.</p>
           </div>
         </div>
-        <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-gray-700">
-          <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-sba-burgundy flex-shrink-0"></i> Electrician</li>
-          <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-sba-burgundy flex-shrink-0"></i> Plumber</li>
-          <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-sba-burgundy flex-shrink-0"></i> Welder</li>
-          <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-sba-burgundy flex-shrink-0"></i> Bricklayer / Brick & Block Laying</li>
-          <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-sba-burgundy flex-shrink-0"></i> Carpenter</li>
-          <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-sba-burgundy flex-shrink-0"></i> House Building</li>
-          <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-sba-burgundy flex-shrink-0"></i> Roofing</li>
-          <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-sba-burgundy flex-shrink-0"></i> Plastering</li>
-          <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-sba-burgundy flex-shrink-0"></i> Painting</li>
-          <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-sba-burgundy flex-shrink-0"></i> Tiling</li>
-          <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-sba-burgundy flex-shrink-0"></i> Paving</li>
-          <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-sba-burgundy flex-shrink-0"></i> Ironmongery</li>
-          <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-sba-burgundy flex-shrink-0"></i> Concrete Formwork / Shuttering</li>
-          <li class="flex items-center gap-2 col-span-1 sm:col-span-2 text-sba-burgundy font-semibold"><i data-lucide="check-circle-2" class="w-4 h-4 text-sba-burgundy flex-shrink-0"></i> Construction Supervision & Emerging Contractor Development</li>
-        </ul>
-      </div>
 
-      <!-- 2. Health and Safety (OHS) Skills -->
-      <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition">
-        <div class="flex items-center gap-3 mb-4 border-b pb-3">
-          <div class="p-3 bg-sba-burgundy/10 text-sba-burgundy rounded-lg"><i data-lucide="shield-check" class="w-6 h-6"></i></div>
-          <div>
-            <h3 class="text-lg font-bold text-gray-900">2. Health and Safety (OHS) Skills</h3>
-            <span class="text-xs text-sba-burgundy font-bold uppercase tracking-wider">Physical Attendance Only</span>
-          </div>
+        <div class="relative flex items-center justify-center z-10 flex-shrink-0">
+          <img src="./graduate.png" alt="SBA Graduate" class="subtle-bottom-fade h-72 sm:h-96 w-auto object-contain filter contrast-105">
         </div>
-        <ul class="space-y-3 text-sm text-gray-700">
-          <li class="flex items-center gap-2.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-sba-burgundy flex-shrink-0"></i> SHE Rep (Safety, Health & Environment)</li>
-          <li class="flex items-center gap-2.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-sba-burgundy flex-shrink-0"></i> Working at Heights Certification</li>
-          <li class="flex items-center gap-2.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-sba-burgundy flex-shrink-0"></i> Scaffolding Training</li>
-          <li class="flex items-center gap-2.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-sba-burgundy flex-shrink-0"></i> First Aid Levels 1, 2, and 3</li>
-          <li class="flex items-center gap-2.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-sba-burgundy flex-shrink-0"></i> HIRA (Hazard Identification & Risk Assessment)</li>
-        </ul>
-      </div>
-
-      <!-- 3. Skills Development Practitioner Training -->
-      <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition">
-        <div class="flex items-center gap-3 mb-4 border-b pb-3">
-          <div class="p-3 bg-sba-burgundy/10 text-sba-burgundy rounded-lg"><i data-lucide="graduation-cap" class="w-6 h-6"></i></div>
-          <div>
-            <h3 class="text-lg font-bold text-gray-900">3. Skills Development Practitioner Training</h3>
-            <span class="text-xs text-blue-700 font-bold uppercase tracking-wider">Blended: Online & Physical</span>
-          </div>
-        </div>
-        <ul class="space-y-3 text-sm text-gray-700">
-          <li class="flex items-center gap-2.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-sba-burgundy flex-shrink-0"></i> Facilitator Training</li>
-          <li class="flex items-center gap-2.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-sba-burgundy flex-shrink-0"></i> Assessor Training</li>
-          <li class="flex items-center gap-2.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-sba-burgundy flex-shrink-0"></i> Moderator Training</li>
-        </ul>
-      </div>
-
-      <!-- 4. Entrepreneurship - Business -->
-      <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition">
-        <div class="flex items-center gap-3 mb-4 border-b pb-3">
-          <div class="p-3 bg-sba-burgundy/10 text-sba-burgundy rounded-lg"><i data-lucide="briefcase" class="w-6 h-6"></i></div>
-          <div>
-            <h3 class="text-lg font-bold text-gray-900">4. Micro to Small Business Entrepreneurship</h3>
-            <span class="text-xs text-blue-700 font-bold uppercase tracking-wider">Blended: Online & Physical</span>
-          </div>
-        </div>
-        <ul class="space-y-3 text-sm text-gray-700">
-          <li class="flex items-center gap-2.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-sba-burgundy flex-shrink-0"></i> New Venture Creation & Business Modelling</li>
-          <li class="flex items-center gap-2.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-sba-burgundy flex-shrink-0"></i> Strategic Planning, Governance & Risk Management</li>
-          <li class="flex items-center gap-2.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-sba-burgundy flex-shrink-0"></i> Tendering, Costing, Pricing & Financial Management</li>
-          <li class="flex items-center gap-2.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-sba-burgundy flex-shrink-0"></i> Business Pitching, Mentorship & Coaching</li>
-        </ul>
       </div>
     </div>
   </section>
 
-  <!-- ABOUT US SECTION -->
-  <section id="about" class="bg-gray-50 py-16 px-4 border-y border-gray-200">
-    <div class="max-w-7xl mx-auto">
-      <div class="grid lg:grid-cols-2 gap-12 items-center">
+  <!-- INDUSTRY IMPACT STAT STRIP -->
+  <section class="bg-sba-black text-white py-8 border-y border-gray-800">
+    <div class="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+      <div>
+        <span class="text-xl sm:text-2xl md:text-3xl font-extrabold text-sba-burgundy">R160 Billion</span>
+        <p class="text-[11px] sm:text-xs text-gray-400 mt-1">SA Construction GDP Impact</p>
+      </div>
+      <div>
+        <span class="text-xl sm:text-2xl md:text-3xl font-extrabold text-sba-burgundy">1.3 Million</span>
+        <p class="text-[11px] sm:text-xs text-gray-400 mt-1">Industry Workforce Support</p>
+      </div>
+      <div>
+        <span class="text-xl sm:text-2xl md:text-3xl font-extrabold text-sba-burgundy">4,200m²+</span>
+        <p class="text-[11px] sm:text-xs text-gray-400 mt-1">College & Practical Training Floor</p>
+      </div>
+      <div>
+        <span class="text-xl sm:text-2xl md:text-3xl font-extrabold text-sba-burgundy">3-Year Audited</span>
+        <p class="text-[11px] sm:text-xs text-gray-400 mt-1">DHET & SETA Quality Assurance</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT US & INSTITUTIONAL OVERVIEW -->
+  <section id="about" class="bg-gray-50 py-12 md:py-16 px-4 border-y border-gray-200">
+    <div class="max-w-7xl mx-auto space-y-10">
+      <div class="grid lg:grid-cols-2 gap-8 items-center">
         <div>
           <span class="text-sba-burgundy text-xs font-bold uppercase tracking-wider">Who We Are & Philosophy</span>
-          <h2 class="text-3xl font-extrabold text-gray-900 mb-4 mt-1">About Small Business Academy</h2>
-          <p class="text-gray-700 leading-relaxed mb-4 text-sm md:text-base">
-            Small Business Academy (registered as G-Stuff Trading Pty Ltd) is a South African skills development institution specializing in artisan training, trade testing, entrepreneurship development, OHS training, and skills development practitioner programs.
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-gray-900 mb-4 mt-1">About Small Business Academy</h2>
+          <p class="text-gray-700 leading-relaxed mb-3 text-sm sm:text-base">
+            Small Business Academy (registered as G-Stuff Trading Pty Ltd) is a South African skills development institution specializing in artisan training, trade testing, entrepreneurship development, occupational health and safety (OHS) training, and skills development practitioner programs.
+          </p>
+          <p class="text-gray-700 leading-relaxed mb-4 text-sm sm:text-base">
+            Operating from our centralized campus at 127 Johannes Nkosi Street in Durban CBD, we bridge the critical shortage of certified tradesmen in South Africa by combining rigorous theoretical learning with extensive hands-on workshop experience.
           </p>
           <div class="space-y-3">
             <div class="bg-white p-4 rounded-md shadow-sm border-l-4 border-sba-burgundy">
@@ -342,127 +245,365 @@
           </div>
         </div>
 
-        <div class="bg-white text-gray-900 p-8 rounded-lg shadow-xl border border-gray-200">
-          <h3 class="text-xl font-bold text-sba-burgundy mb-4 border-b border-gray-200 pb-2">Core Organizational Values</h3>
-          <ul class="space-y-3 text-sm text-gray-700">
-            <li class="flex items-start gap-2.5"><i data-lucide="check" class="w-5 h-5 text-sba-burgundy flex-shrink-0 mt-0.5"></i> <span><strong>Empowerment:</strong> Equipping learners with practical skills and confidence.</span></li>
-            <li class="flex items-start gap-2.5"><i data-lucide="check" class="w-5 h-5 text-sba-burgundy flex-shrink-0 mt-0.5"></i> <span><strong>Excellence:</strong> Highest standards in training, assessment, and service delivery.</span></li>
-            <li class="flex items-start gap-2.5"><i data-lucide="check" class="w-5 h-5 text-sba-burgundy flex-shrink-0 mt-0.5"></i> <span><strong>Integrity:</strong> Honesty, transparency, fairness, and accountability.</span></li>
-            <li class="flex items-start gap-2.5"><i data-lucide="check" class="w-5 h-5 text-sba-burgundy flex-shrink-0 mt-0.5"></i> <span><strong>Quality Workmanship:</strong> Promoting pride in skilled craftsmanship.</span></li>
-            <li class="flex items-start gap-2.5"><i data-lucide="check" class="w-5 h-5 text-sba-burgundy flex-shrink-0 mt-0.5"></i> <span><strong>Entrepreneurial Spirit:</strong> Driving innovation and enterprise creation.</span></li>
+        <div class="space-y-6">
+          <div class="bg-white text-gray-900 p-6 sm:p-8 rounded-lg shadow-xl border border-gray-200">
+            <h3 class="text-lg sm:text-xl font-bold text-sba-burgundy mb-4 border-b border-gray-200 pb-2">Core Organizational Values</h3>
+            <ul class="space-y-3 text-sm text-gray-700">
+              <li class="flex items-start gap-2.5"><i data-lucide="check" class="w-5 h-5 text-sba-burgundy flex-shrink-0 mt-0.5"></i> <span><strong>Empowerment:</strong> Equipping learners with practical skills and confidence.</span></li>
+              <li class="flex items-start gap-2.5"><i data-lucide="check" class="w-5 h-5 text-sba-burgundy flex-shrink-0 mt-0.5"></i> <span><strong>Excellence:</strong> Highest standards in training, assessment, and service delivery.</span></li>
+              <li class="flex items-start gap-2.5"><i data-lucide="check" class="w-5 h-5 text-sba-burgundy flex-shrink-0 mt-0.5"></i> <span><strong>Integrity:</strong> Honesty, transparency, fairness, and accountability.</span></li>
+              <li class="flex items-start gap-2.5"><i data-lucide="check" class="w-5 h-5 text-sba-burgundy flex-shrink-0 mt-0.5"></i> <span><strong>Quality Workmanship:</strong> Promoting pride in skilled craftsmanship.</span></li>
+              <li class="flex items-start gap-2.5"><i data-lucide="check" class="w-5 h-5 text-sba-burgundy flex-shrink-0 mt-0.5"></i> <span><strong>Entrepreneurial Spirit:</strong> Driving innovation and enterprise creation.</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- CLASSROOM & ENVIRONMENT PHOTO HIGHLIGHT -->
+      <div class="grid md:grid-cols-2 gap-6 items-center bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+        <div class="overflow-hidden rounded-lg shadow-md border border-gray-100 bg-gray-100">
+          <img src="./class 2.png" alt="SBA Classroom & Training Session" class="w-full h-60 sm:h-72 object-cover hover:scale-105 transition duration-300">
+        </div>
+        <div class="space-y-3">
+          <span class="text-sba-burgundy text-xs font-bold uppercase tracking-wider">Conducive Learning Environment</span>
+          <h3 class="text-xl sm:text-2xl font-extrabold text-gray-900">Interactive Classrooms & Expert Mentorship</h3>
+          <p class="text-gray-600 text-xs sm:text-sm leading-relaxed">
+            Our training rooms are fully equipped with Wi-Fi connectivity, modern projection technology, and learner-centered workstations. Every session is led by accredited facilitators and industry practitioners dedicated to maximizing student comprehension and trade test readiness.
+          </p>
+          <div class="flex flex-wrap items-center gap-2 pt-2 text-xs font-semibold text-gray-700">
+            <span class="px-3 py-1 bg-sba-burgundy/10 text-sba-burgundy rounded-full">Wi-Fi Enabled</span>
+            <span class="px-3 py-1 bg-sba-burgundy/10 text-sba-burgundy rounded-full">Projector Equipped</span>
+            <span class="px-3 py-1 bg-sba-burgundy/10 text-sba-burgundy rounded-full">Fully Moderated</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MANAGEMENT & LEADERSHIP SECTION -->
+  <section id="leadership" class="py-12 md:py-16 px-4 max-w-7xl mx-auto">
+    <div class="text-center max-w-3xl mx-auto mb-10">
+      <span class="text-sba-burgundy text-xs font-bold uppercase tracking-wider">Executive Governance</span>
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-gray-900 mb-2 mt-1">Meet Our Leadership Team</h2>
+      <p class="text-gray-600 text-sm">Astute business creators, managers, and educators guiding SBA's strategic vision and quality assurance.</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+      <!-- Leader 1: Amos Mtshali -->
+      <div class="bg-white rounded-xl border border-gray-200 shadow-lg overflow-hidden flex flex-col sm:flex-row items-center p-5 sm:p-6 gap-5">
+        <div class="w-32 h-40 sm:w-36 sm:h-44 flex-shrink-0 bg-gray-100 rounded-lg overflow-hidden shadow-inner border border-gray-200">
+          <img src="./amos matshali 2.png" alt="Mr. M.A. Mtshali" class="w-full h-full object-cover object-top">
+        </div>
+        <div class="space-y-1.5 text-center sm:text-left">
+          <span class="inline-block bg-sba-burgundy/10 text-sba-burgundy text-[10px] font-bold px-2.5 py-0.5 rounded uppercase tracking-wider">Centre Manager</span>
+          <h3 class="text-lg sm:text-xl font-bold text-gray-900">Mr. M.A. Mtshali</h3>
+          <p class="text-xs font-semibold text-sba-burgundy">B.Compt (Accounting and Auditing)</p>
+          <p class="text-xs text-gray-600 leading-relaxed pt-1">
+            Oversees institutional operations, financial governance, auditing compliance, and training centre administration at our Durban CBD campus.
+          </p>
+        </div>
+      </div>
+
+      <!-- Leader 2: Sfiso Nduli -->
+      <div class="bg-white rounded-xl border border-gray-200 shadow-lg overflow-hidden flex flex-col sm:flex-row items-center p-5 sm:p-6 gap-5">
+        <div class="w-32 h-40 sm:w-36 sm:h-44 flex-shrink-0 bg-gray-100 rounded-lg overflow-hidden shadow-inner border border-gray-200">
+          <img src="./sfiso nduli 2.png" alt="Mr. S.J. Nduli" class="w-full h-full object-cover object-top">
+        </div>
+        <div class="space-y-1.5 text-center sm:text-left">
+          <span class="inline-block bg-sba-burgundy/10 text-sba-burgundy text-[10px] font-bold px-2.5 py-0.5 rounded uppercase tracking-wider">Skills Development Manager</span>
+          <h3 class="text-lg sm:text-xl font-bold text-gray-900">Mr. S.J. Nduli</h3>
+          <p class="text-xs font-semibold text-sba-burgundy">Post Graduate In Entrepreneurship</p>
+          <p class="text-xs text-gray-600 leading-relaxed pt-1">
+            Directs artisan development pathways, strategic stakeholder partnerships, enterprise mentorship, and SETA-aligned curriculum delivery.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OFFICIAL COURSE OFFERINGS & CURRICULUM SECTION -->
+  <section id="offerings" class="py-12 md:py-16 px-4 max-w-7xl mx-auto">
+    <div class="text-center max-w-3xl mx-auto mb-10">
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-gray-900 mb-2">Official Course Offerings & Pathways</h2>
+      <p class="text-gray-600 text-sm">Structured qualifications and trade programs strictly matching SBA's official business profile.</p>
+    </div>
+
+    <!-- Qualification Pathways Banner -->
+    <div class="bg-gray-900 text-white p-5 sm:p-6 rounded-lg mb-10 shadow">
+      <h3 class="text-base sm:text-lg font-bold text-sba-burgundy mb-3 flex items-center gap-2">
+        <i data-lucide="git-commit" class="w-5 h-5"></i> Training Pathways & Duration Options
+      </h3>
+      <div class="grid grid-cols-2 md:grid-cols-5 gap-2.5 text-center text-xs">
+        <div class="p-2.5 bg-gray-800 rounded border border-gray-700"><strong>Skills Gap:</strong><br><span class="text-gray-300">1–3 Days</span></div>
+        <div class="p-2.5 bg-gray-800 rounded border border-gray-700"><strong>Short Skills:</strong><br><span class="text-gray-300">1–6 Months</span></div>
+        <div class="p-2.5 bg-gray-800 rounded border border-gray-700"><strong>Qualifications:</strong><br><span class="text-gray-300">Up to 1 Year</span></div>
+        <div class="p-2.5 bg-gray-800 rounded border border-gray-700"><strong>Apprenticeships:</strong><br><span class="text-gray-300">3 Years</span></div>
+        <div class="p-2.5 bg-gray-800 rounded border border-gray-700 col-span-2 md:col-span-1"><strong>ARPL Assessment:</strong><br><span class="text-gray-300">3–4 Months</span></div>
+      </div>
+    </div>
+
+    <!-- Official Four Pillar Curriculum Grid -->
+    <div class="grid md:grid-cols-2 gap-6 lg:gap-8">
+      
+      <!-- 1. Construction Trades & Trade Test Centre -->
+      <div class="bg-white p-5 sm:p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition flex flex-col justify-between">
+        <div>
+          <div class="flex items-center gap-3 mb-4 border-b pb-3">
+            <div class="p-2.5 bg-sba-burgundy/10 text-sba-burgundy rounded-lg"><i data-lucide="wrench" class="w-5 h-5 sm:w-6 sm:h-6"></i></div>
+            <div>
+              <h3 class="text-base sm:text-lg font-bold text-gray-900">1. School of Construction Trades & Trade Test Centre</h3>
+              <span class="text-xs text-gray-500 font-medium">Practical Workshop & Assessment Center</span>
+            </div>
+          </div>
+
+          <!-- Embedded Electrical Workshop Photo -->
+          <div class="mb-4 overflow-hidden rounded-md border border-gray-200 bg-gray-100">
+            <img src="./electrical dpt 2.png" alt="SBA Electrical Department Training" class="w-full h-44 sm:h-48 object-cover hover:scale-105 transition duration-300">
+          </div>
+
+          <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs sm:text-sm text-gray-700 mb-6">
+            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-sba-burgundy flex-shrink-0"></i> Electrician (Installation & Testing)</li>
+            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-sba-burgundy flex-shrink-0"></i> Plumber & Hot Water Systems</li>
+            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-sba-burgundy flex-shrink-0"></i> Welder & Metal Fabrication</li>
+            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-sba-burgundy flex-shrink-0"></i> Bricklaying & Block Laying</li>
+            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-sba-burgundy flex-shrink-0"></i> Carpenter & Roof Construction</li>
+            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-sba-burgundy flex-shrink-0"></i> Community House Building</li>
+            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-sba-burgundy flex-shrink-0"></i> Plastering & Painting</li>
+            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-sba-burgundy flex-shrink-0"></i> Tiling & Paving</li>
+            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-sba-burgundy flex-shrink-0"></i> Ironmongery & Shuttering</li>
+            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-sba-burgundy flex-shrink-0"></i> Construction Roadworks</li>
+            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-sba-burgundy flex-shrink-0"></i> Landscaping & Pest Control</li>
+            <li class="flex items-center gap-2 col-span-1 sm:col-span-2 text-sba-burgundy font-semibold"><i data-lucide="check-circle-2" class="w-4 h-4 text-sba-burgundy flex-shrink-0"></i> Labour Intensive Construction (LIC) & Supervision</li>
           </ul>
+        </div>
+      </div>
+
+      <!-- 2. Health and Safety (OHS) Skills -->
+      <div class="bg-white p-5 sm:p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition flex flex-col justify-between">
+        <div>
+          <div class="flex items-center gap-3 mb-4 border-b pb-3">
+            <div class="p-2.5 bg-sba-burgundy/10 text-sba-burgundy rounded-lg"><i data-lucide="shield-check" class="w-5 h-5 sm:w-6 sm:h-6"></i></div>
+            <div>
+              <h3 class="text-base sm:text-lg font-bold text-gray-900">2. Occupational Health & Safety (OHS)</h3>
+              <span class="text-[11px] text-sba-burgundy font-bold uppercase tracking-wider">Physical Attendance Only</span>
+            </div>
+          </div>
+
+          <!-- Embedded First Aid Photo -->
+          <div class="mb-4 overflow-hidden rounded-md border border-gray-200 bg-gray-100">
+            <img src="./first aid 2.png" alt="SBA First Aid and Safety Training" class="w-full h-44 sm:h-48 object-cover hover:scale-105 transition duration-300">
+          </div>
+
+          <ul class="space-y-2.5 text-xs sm:text-sm text-gray-700 mb-6">
+            <li class="flex items-center gap-2.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-sba-burgundy flex-shrink-0"></i> SHE Representative Training (Safety, Health & Environment)</li>
+            <li class="flex items-center gap-2.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-sba-burgundy flex-shrink-0"></i> First Aid Levels 1, 2, and 3</li>
+            <li class="flex items-center gap-2.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-sba-burgundy flex-shrink-0"></i> Scaffolding Safety & Inspection</li>
+            <li class="flex items-center gap-2.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-sba-burgundy flex-shrink-0"></i> Working at Heights & Confined Spaces</li>
+            <li class="flex items-center gap-2.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-sba-burgundy flex-shrink-0"></i> HIRA (Hazard Identification & Risk Assessment)</li>
+            <li class="flex items-center gap-2.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-sba-burgundy flex-shrink-0"></i> Incident Investigation & Permit to Work (PTW)</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 3. Skills Development Practitioner Training -->
+      <div class="bg-white p-5 sm:p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition flex flex-col justify-between">
+        <div>
+          <div class="flex items-center gap-3 mb-4 border-b pb-3">
+            <div class="p-2.5 bg-sba-burgundy/10 text-sba-burgundy rounded-lg"><i data-lucide="graduation-cap" class="w-5 h-5 sm:w-6 sm:h-6"></i></div>
+            <div>
+              <h3 class="text-base sm:text-lg font-bold text-gray-900">3. Skills Development Practitioner Training</h3>
+              <span class="text-[11px] text-blue-700 font-bold uppercase tracking-wider">Blended: Online & Physical</span>
+            </div>
+          </div>
+
+          <!-- Embedded Skills / Practitioner Photo -->
+          <div class="mb-4 overflow-hidden rounded-md border border-gray-200 bg-gray-100">
+            <img src="./skills 2.png" alt="SBA Skills Development Practitioner Training" class="w-full h-44 sm:h-48 object-cover hover:scale-105 transition duration-300">
+          </div>
+
+          <ul class="space-y-3 text-xs sm:text-sm text-gray-700 mb-6">
+            <li class="flex items-center gap-2.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-sba-burgundy flex-shrink-0"></i> <strong>Facilitator Training:</strong> Plan, deliver, and evaluate learning interventions.</li>
+            <li class="flex items-center gap-2.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-sba-burgundy flex-shrink-0"></i> <strong>Assessor Training:</strong> Assess learner performance and occupational competence.</li>
+            <li class="flex items-center gap-2.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-sba-burgundy flex-shrink-0"></i> <strong>Moderator Training:</strong> Ensure assessment quality and SETA compliance.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 4. Entrepreneurship - Business -->
+      <div class="bg-white p-5 sm:p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition flex flex-col justify-between">
+        <div>
+          <div class="flex items-center gap-3 mb-4 border-b pb-3">
+            <div class="p-2.5 bg-sba-burgundy/10 text-sba-burgundy rounded-lg"><i data-lucide="briefcase" class="w-5 h-5 sm:w-6 sm:h-6"></i></div>
+            <div>
+              <h3 class="text-base sm:text-lg font-bold text-gray-900">4. Micro to Small Business Entrepreneurship</h3>
+              <span class="text-[11px] text-blue-700 font-bold uppercase tracking-wider">Blended: Online & Physical</span>
+            </div>
+          </div>
+
+          <!-- Embedded Plumbing & Enterprise Practical Photo -->
+          <div class="mb-4 overflow-hidden rounded-md border border-gray-200 bg-gray-100">
+            <img src="./plumbing 2.png" alt="SBA Plumbing and Enterprise Practical Session" class="w-full h-44 sm:h-48 object-cover hover:scale-105 transition duration-300">
+          </div>
+
+          <ul class="space-y-2.5 text-xs sm:text-sm text-gray-700 mb-6">
+            <li class="flex items-center gap-2.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-sba-burgundy flex-shrink-0"></i> New Venture Creation & Business Modelling</li>
+            <li class="flex items-center gap-2.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-sba-burgundy flex-shrink-0"></i> Strategic Planning, Governance & Risk Management</li>
+            <li class="flex items-center gap-2.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-sba-burgundy flex-shrink-0"></i> Functional Modules: HR, Operations, Finance & PR</li>
+            <li class="flex items-center gap-2.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-sba-burgundy flex-shrink-0"></i> Tendering, Costing, Pricing & Procurement</li>
+            <li class="flex items-center gap-2.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-sba-burgundy flex-shrink-0"></i> Business Pitching, Mentorship & Consulting</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- WORKSHOP ACTION GALLERY -->
+  <section class="py-12 md:py-16 px-4 bg-gray-50 border-y border-gray-200">
+    <div class="max-w-7xl mx-auto text-center mb-10">
+      <span class="text-sba-burgundy text-xs font-bold uppercase tracking-wider">Real Training Floor</span>
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-gray-900 mt-1">Practical Workshops in Action</h2>
+      <p class="text-gray-600 text-xs sm:text-sm mt-1">Take a look inside our fully equipped Durban training facility where learners gain hands-on technical experience.</p>
+    </div>
+
+    <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-6 lg:gap-8 items-center">
+      <div class="overflow-hidden rounded-xl border border-gray-200 shadow-md bg-white p-3">
+        <img src="./practical 2.png" alt="SBA Practical Hands-on Training" class="w-full h-64 sm:h-80 object-cover rounded-lg hover:scale-105 transition duration-300">
+        <div class="p-3 text-left">
+          <h4 class="font-bold text-gray-900 text-sm sm:text-base">Intensive Practical & Trade Testing Sessions</h4>
+          <p class="text-xs text-gray-600 mt-1">Replicating real-world construction conditions to ensure every artisan meets DHET and industry standards.</p>
+        </div>
+      </div>
+
+      <div class="space-y-4 sm:space-y-6">
+        <div class="bg-white p-5 sm:p-6 rounded-xl border border-gray-200 shadow-sm">
+          <h4 class="font-bold text-gray-900 text-xs sm:text-sm flex items-center gap-2 mb-2">
+            <i data-lucide="check-circle" class="w-4 h-4 text-sba-burgundy"></i> Recognition of Prior Learning (ARPL)
+          </h4>
+          <p class="text-xs text-gray-600 leading-relaxed">
+            For experienced informal workers and artisans, our 3 to 4 month ARPL pathway assesses existing workplace experience and fast-tracks official National Trade Testing.
+          </p>
+        </div>
+
+        <div class="bg-white p-5 sm:p-6 rounded-xl border border-gray-200 shadow-sm">
+          <h4 class="font-bold text-gray-900 text-xs sm:text-sm flex items-center gap-2 mb-2">
+            <i data-lucide="check-circle" class="w-4 h-4 text-sba-burgundy"></i> 3-Year Structured Apprenticeships
+          </h4>
+          <p class="text-xs text-gray-600 leading-relaxed">
+            Combining structured workplace training and advanced theoretical modules to prepare candidates for high-demand careers in electrical, plumbing, welding, and carpentry.
+          </p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- GRADUATES SECTION -->
-  <section id="graduates" class="py-16 px-4 max-w-7xl mx-auto">
-    <div class="text-center mb-12">
-      <h2 class="text-3xl font-extrabold text-gray-900">Our Graduates</h2>
-      <p class="text-gray-600 mt-2 text-sm">Empowered artisans and contractors transforming South Africa's construction landscape.</p>
+  <section id="graduates" class="py-12 md:py-16 px-4 max-w-7xl mx-auto">
+    <div class="text-center mb-10">
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-gray-900">Our Graduates</h2>
+      <p class="text-gray-600 mt-2 text-xs sm:text-sm">Empowered artisans and contractors transforming South Africa's construction landscape.</p>
     </div>
 
     <div class="grid md:grid-cols-3 gap-6">
-      <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm flex flex-col justify-between">
+      <div class="bg-white p-5 sm:p-6 rounded-lg border border-gray-200 shadow-sm flex flex-col justify-between">
         <div>
           <div class="flex items-center gap-1 text-sba-burgundy mb-3">
             <i data-lucide="star" class="w-4 h-4 fill-sba-burgundy"></i><i data-lucide="star" class="w-4 h-4 fill-sba-burgundy"></i><i data-lucide="star" class="w-4 h-4 fill-sba-burgundy"></i><i data-lucide="star" class="w-4 h-4 fill-sba-burgundy"></i><i data-lucide="star" class="w-4 h-4 fill-sba-burgundy"></i>
           </div>
-          <p class="text-gray-700 text-sm italic mb-4">"Completing my Electrical trade test preparation at SBA gave me the credentials to register my own electrical contracting company in Durban."</p>
+          <p class="text-gray-700 text-xs sm:text-sm italic mb-4">"Completing my Electrical trade test preparation at SBA gave me the credentials to register my own electrical contracting company in Durban."</p>
         </div>
         <div>
-          <span class="block font-bold text-sm text-gray-900">S. Mthembu</span>
-          <span class="text-xs text-gray-500">Qualified Electrician & Business Owner</span>
+          <span class="block font-bold text-xs sm:text-sm text-gray-900">S. Mthembu</span>
+          <span class="text-[11px] text-gray-500">Qualified Electrician & Business Owner</span>
         </div>
       </div>
 
-      <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm flex flex-col justify-between">
+      <div class="bg-white p-5 sm:p-6 rounded-lg border border-gray-200 shadow-sm flex flex-col justify-between">
         <div>
           <div class="flex items-center gap-1 text-sba-burgundy mb-3">
             <i data-lucide="star" class="w-4 h-4 fill-sba-burgundy"></i><i data-lucide="star" class="w-4 h-4 fill-sba-burgundy"></i><i data-lucide="star" class="w-4 h-4 fill-sba-burgundy"></i><i data-lucide="star" class="w-4 h-4 fill-sba-burgundy"></i><i data-lucide="star" class="w-4 h-4 fill-sba-burgundy"></i>
           </div>
-          <p class="text-gray-700 text-sm italic mb-4">"The practical plumbing workshops paired with tendering modules allowed our team to participate in municipal maintenance projects directly."</p>
+          <p class="text-gray-700 text-xs sm:text-sm italic mb-4">"The practical plumbing workshops paired with tendering modules allowed our team to participate in municipal maintenance projects directly."</p>
         </div>
         <div>
-          <span class="block font-bold text-sm text-gray-900">N. Dlamini</span>
-          <span class="text-xs text-gray-500">Plumbing & Civil Contractor</span>
+          <span class="block font-bold text-xs sm:text-sm text-gray-900">N. Dlamini</span>
+          <span class="text-[11px] text-gray-500">Plumbing & Civil Contractor</span>
         </div>
       </div>
 
-      <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm flex flex-col justify-between">
+      <div class="bg-white p-5 sm:p-6 rounded-lg border border-gray-200 shadow-sm flex flex-col justify-between">
         <div>
           <div class="flex items-center gap-1 text-sba-burgundy mb-3">
             <i data-lucide="star" class="w-4 h-4 fill-sba-burgundy"></i><i data-lucide="star" class="w-4 h-4 fill-sba-burgundy"></i><i data-lucide="star" class="w-4 h-4 fill-sba-burgundy"></i><i data-lucide="star" class="w-4 h-4 fill-sba-burgundy"></i><i data-lucide="star" class="w-4 h-4 fill-sba-burgundy"></i>
           </div>
-          <p class="text-gray-700 text-sm italic mb-4">"The OHS First Aid and SHE Rep training gave me hands-on safety skills that secured my appointment as a safety officer."</p>
+          <p class="text-gray-700 text-xs sm:text-sm italic mb-4">"The OHS First Aid and SHE Rep training gave me hands-on safety skills that secured my appointment as a safety officer."</p>
         </div>
         <div>
-          <span class="block font-bold text-sm text-gray-900">Z. Khumalo</span>
-          <span class="text-xs text-gray-500">Certified OHS Practitioner</span>
+          <span class="block font-bold text-xs sm:text-sm text-gray-900">Z. Khumalo</span>
+          <span class="text-[11px] text-gray-500">Certified OHS Practitioner</span>
         </div>
       </div>
     </div>
   </section>
 
   <!-- CLIENTS & PARTNERS SECTION -->
-  <section id="partners" class="bg-gray-900 text-white py-16 px-4">
+  <section id="partners" class="bg-gray-900 text-white py-12 md:py-16 px-4">
     <div class="max-w-7xl mx-auto text-center">
-      <h2 class="text-2xl md:text-3xl font-extrabold mb-8 text-white">Trusted by Leading Organisations</h2>
+      <h2 class="text-xl sm:text-2xl md:text-3xl font-extrabold mb-8 text-white">Trusted by Leading Organisations</h2>
       
-      <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-4 max-w-5xl mx-auto">
-        <span class="px-3.5 py-2 bg-gray-800 rounded text-xs font-semibold border border-gray-700 hover:border-sba-burgundy transition">Public Works & Infrastructure</span>
-        <span class="px-3.5 py-2 bg-gray-800 rounded text-xs font-semibold border border-gray-700 hover:border-sba-burgundy transition">UKZN (School of Business and Leadership)</span>
-        <span class="px-3.5 py-2 bg-gray-800 rounded text-xs font-semibold border border-gray-700 hover:border-sba-burgundy transition">GIBS University of Pretoria</span>
-        <span class="px-3.5 py-2 bg-gray-800 rounded text-xs font-semibold border border-gray-700 hover:border-sba-burgundy transition">Ethekwini Municipality</span>
-        <span class="px-3.5 py-2 bg-gray-800 rounded text-xs font-semibold border border-gray-700 hover:border-sba-burgundy transition">Transnet</span>
-        <span class="px-3.5 py-2 bg-gray-800 rounded text-xs font-semibold border border-gray-700 hover:border-sba-burgundy transition">Afromed Medical Services</span>
-        <span class="px-3.5 py-2 bg-gray-800 rounded text-xs font-semibold border border-gray-700 hover:border-sba-burgundy transition">SEDFA</span>
-        <span class="px-3.5 py-2 bg-gray-800 rounded text-xs font-semibold border border-gray-700 hover:border-sba-burgundy transition">National Ports Authority</span>
-        <span class="px-3.5 py-2 bg-gray-800 rounded text-xs font-semibold border border-gray-700 hover:border-sba-burgundy transition">Umfolozi TVET College</span>
-        <span class="px-3.5 py-2 bg-gray-800 rounded text-xs font-semibold border border-gray-700 hover:border-sba-burgundy transition">NYDA</span>
-        <span class="px-3.5 py-2 bg-gray-800 rounded text-xs font-semibold border border-gray-700 hover:border-sba-burgundy transition">Msunduzi Municipality</span>
-        <span class="px-3.5 py-2 bg-gray-800 rounded text-xs font-semibold border border-gray-700 hover:border-sba-burgundy transition">Umzinyathi District Municipality</span>
-        <span class="px-3.5 py-2 bg-gray-800 rounded text-xs font-semibold border border-gray-700 hover:border-sba-burgundy transition">Unilever</span>
-        <span class="px-3.5 py-2 bg-gray-800 rounded text-xs font-semibold border border-gray-700 hover:border-sba-burgundy transition">Elangeni TVET College</span>
+      <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-3 max-w-5xl mx-auto">
+        <span class="px-3 py-1.5 bg-gray-800 rounded text-xs font-semibold border border-gray-700 hover:border-sba-burgundy transition">Public Works & Infrastructure</span>
+        <span class="px-3 py-1.5 bg-gray-800 rounded text-xs font-semibold border border-gray-700 hover:border-sba-burgundy transition">UKZN (School of Business and Leadership)</span>
+        <span class="px-3 py-1.5 bg-gray-800 rounded text-xs font-semibold border border-gray-700 hover:border-sba-burgundy transition">GIBS University of Pretoria</span>
+        <span class="px-3 py-1.5 bg-gray-800 rounded text-xs font-semibold border border-gray-700 hover:border-sba-burgundy transition">Ethekwini Municipality</span>
+        <span class="px-3 py-1.5 bg-gray-800 rounded text-xs font-semibold border border-gray-700 hover:border-sba-burgundy transition">Transnet</span>
+        <span class="px-3 py-1.5 bg-gray-800 rounded text-xs font-semibold border border-gray-700 hover:border-sba-burgundy transition">Afromed Medical Services</span>
+        <span class="px-3 py-1.5 bg-gray-800 rounded text-xs font-semibold border border-gray-700 hover:border-sba-burgundy transition">SEDFA</span>
+        <span class="px-3 py-1.5 bg-gray-800 rounded text-xs font-semibold border border-gray-700 hover:border-sba-burgundy transition">National Ports Authority</span>
+        <span class="px-3 py-1.5 bg-gray-800 rounded text-xs font-semibold border border-gray-700 hover:border-sba-burgundy transition">Umfolozi TVET College</span>
+        <span class="px-3 py-1.5 bg-gray-800 rounded text-xs font-semibold border border-gray-700 hover:border-sba-burgundy transition">NYDA</span>
+        <span class="px-3 py-1.5 bg-gray-800 rounded text-xs font-semibold border border-gray-700 hover:border-sba-burgundy transition">Msunduzi Municipality</span>
+        <span class="px-3 py-1.5 bg-gray-800 rounded text-xs font-semibold border border-gray-700 hover:border-sba-burgundy transition">Umzinyathi District Municipality</span>
+        <span class="px-3 py-1.5 bg-gray-800 rounded text-xs font-semibold border border-gray-700 hover:border-sba-burgundy transition">Unilever</span>
+        <span class="px-3 py-1.5 bg-gray-800 rounded text-xs font-semibold border border-gray-700 hover:border-sba-burgundy transition">Elangeni TVET College</span>
       </div>
     </div>
   </section>
 
-  <!-- CONTACT US SECTION WITH EMBEDDED GOOGLE MAP -->
-  <section id="contact" class="py-16 px-4 max-w-7xl mx-auto">
-    <div class="grid lg:grid-cols-2 gap-12 mb-12">
+  <!-- CONTACT US SECTION WITH MAP -->
+  <section id="contact" class="py-12 md:py-16 px-4 max-w-7xl mx-auto">
+    <div class="grid lg:grid-cols-2 gap-10 mb-10">
       <div>
-        <h2 class="text-3xl font-extrabold text-gray-900 mb-3">Contact Us</h2>
-        <p class="text-gray-600 mb-8 text-sm">Get in touch with our admissions office directly for trade test schedules, enrollment dates, or consulting inquiries.</p>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-gray-900 mb-2">Contact Us</h2>
+        <p class="text-gray-600 mb-6 text-xs sm:text-sm">Get in touch with our admissions office directly for trade test schedules, enrollment dates, or consulting inquiries.</p>
         
-        <div class="space-y-6 text-sm">
-          <div class="flex items-start gap-4">
-            <div class="p-3 bg-sba-burgundy/10 text-sba-burgundy rounded-lg flex-shrink-0"><i data-lucide="phone" class="w-5 h-5"></i></div>
+        <div class="space-y-4 text-xs sm:text-sm">
+          <div class="flex items-start gap-3">
+            <div class="p-2.5 bg-sba-burgundy/10 text-sba-burgundy rounded-lg flex-shrink-0"><i data-lucide="phone" class="w-4 h-4"></i></div>
             <div>
               <strong class="block text-gray-900">Tel:</strong>
               <span class="text-gray-700">031 329 1297</span>
             </div>
           </div>
 
-          <div class="flex items-start gap-4">
-            <div class="p-3 bg-sba-burgundy/10 text-sba-burgundy rounded-lg flex-shrink-0"><i data-lucide="message-square" class="w-5 h-5"></i></div>
+          <div class="flex items-start gap-3">
+            <div class="p-2.5 bg-sba-burgundy/10 text-sba-burgundy rounded-lg flex-shrink-0"><i data-lucide="message-square" class="w-4 h-4"></i></div>
             <div>
               <strong class="block text-gray-900">WhatsApp:</strong>
               <span class="text-gray-700">083 777 8392</span>
             </div>
           </div>
 
-          <div class="flex items-start gap-4">
-            <div class="p-3 bg-sba-burgundy/10 text-sba-burgundy rounded-lg flex-shrink-0"><i data-lucide="mail" class="w-5 h-5"></i></div>
+          <div class="flex items-start gap-3">
+            <div class="p-2.5 bg-sba-burgundy/10 text-sba-burgundy rounded-lg flex-shrink-0"><i data-lucide="mail" class="w-4 h-4"></i></div>
             <div>
               <strong class="block text-gray-900">Email:</strong>
               <span class="text-gray-700">info@smallbusinessacademy.org.za</span>
             </div>
           </div>
 
-          <div class="flex items-start gap-4">
-            <div class="p-3 bg-sba-burgundy/10 text-sba-burgundy rounded-lg flex-shrink-0"><i data-lucide="map-pin" class="w-5 h-5"></i></div>
+          <div class="flex items-start gap-3">
+            <div class="p-2.5 bg-sba-burgundy/10 text-sba-burgundy rounded-lg flex-shrink-0"><i data-lucide="map-pin" class="w-4 h-4"></i></div>
             <div>
               <strong class="block text-gray-900">Physical Address:</strong>
               <span class="text-gray-700">
@@ -475,49 +616,48 @@
         </div>
       </div>
 
-      <div class="bg-white p-8 rounded-lg border border-gray-200 shadow-md">
-        <h3 class="text-xl font-bold text-gray-900 mb-4">Send an Online Inquiry</h3>
+      <div class="bg-white p-6 sm:p-8 rounded-lg border border-gray-200 shadow-md">
+        <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-4">Send an Online Inquiry</h3>
         <form class="space-y-4" onsubmit="event.preventDefault(); alert('Thank you for contacting Small Business Academy. Our admissions team will reach out shortly.');">
           <div>
-            <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Full Name</label>
-            <input type="text" required class="w-full px-4 py-2.5 border border-gray-300 rounded-md focus:ring-2 focus:ring-sba-burgundy focus:outline-none text-sm">
+            <label class="block text-[11px] font-bold text-gray-700 uppercase mb-1">Full Name</label>
+            <input type="text" required class="w-full px-3 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-sba-burgundy focus:outline-none text-xs sm:text-sm">
           </div>
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
-              <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Phone / WhatsApp</label>
-              <input type="tel" required class="w-full px-4 py-2.5 border border-gray-300 rounded-md focus:ring-2 focus:ring-sba-burgundy focus:outline-none text-sm">
+              <label class="block text-[11px] font-bold text-gray-700 uppercase mb-1">Phone / WhatsApp</label>
+              <input type="tel" required class="w-full px-3 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-sba-burgundy focus:outline-none text-xs sm:text-sm">
             </div>
             <div>
-              <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Email Address</label>
-              <input type="email" required class="w-full px-4 py-2.5 border border-gray-300 rounded-md focus:ring-2 focus:ring-sba-burgundy focus:outline-none text-sm">
+              <label class="block text-[11px] font-bold text-gray-700 uppercase mb-1">Email Address</label>
+              <input type="email" required class="w-full px-3 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-sba-burgundy focus:outline-none text-xs sm:text-sm">
             </div>
           </div>
           <div>
-            <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Program / Trade Interest</label>
-            <select class="w-full px-4 py-2.5 border border-gray-300 rounded-md focus:ring-2 focus:ring-sba-burgundy focus:outline-none text-sm">
+            <label class="block text-[11px] font-bold text-gray-700 uppercase mb-1">Program / Trade Interest</label>
+            <select class="w-full px-3 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-sba-burgundy focus:outline-none text-xs sm:text-sm">
               <option>Construction Trades & Trade Testing (Electrician, Plumber, Welder, etc.)</option>
-              <option>Health and Safety (OHS) Skills</option>
+              <option>Occupational Health and Safety (OHS)</option>
               <option>Skills Development Practitioner Training</option>
               <option>Micro to Small Business Entrepreneurship</option>
             </select>
           </div>
           <div>
-            <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Message</label>
-            <textarea rows="3" required class="w-full px-4 py-2.5 border border-gray-300 rounded-md focus:ring-2 focus:ring-sba-burgundy focus:outline-none text-sm"></textarea>
+            <label class="block text-[11px] font-bold text-gray-700 uppercase mb-1">Message</label>
+            <textarea rows="3" required class="w-full px-3 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-sba-burgundy focus:outline-none text-xs sm:text-sm"></textarea>
           </div>
-          <button type="submit" class="w-full bg-sba-burgundy hover:bg-sba-darkburgundy text-white font-bold py-3 rounded-md transition shadow">
+          <button type="submit" class="w-full bg-sba-burgundy hover:bg-sba-darkburgundy text-white font-bold py-2.5 rounded transition shadow text-xs sm:text-sm">
             Submit Inquiry
           </button>
         </form>
       </div>
     </div>
 
-    <!-- EMBEDDED GOOGLE MAP CONTAINER -->
     <div class="w-full overflow-hidden rounded-lg shadow-lg border border-gray-200">
       <iframe 
         title="Small Business Academy Durban Campus Location"
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3460.3347102604246!2d31.0142852!3d-29.8546059!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ef7a9985b8fae77%3A0x6bd77a76be2d6ed3!2s127%20Johannes%20Nkosi%20St%2C%20Warwick%2C%20Durban%2C%204001!5e0!3m2!1sen!2sza!4v1700000000000!5m2!1sen!2sza" 
-        class="w-full h-80 sm:h-96 border-0" 
+        class="w-full h-72 sm:h-96 border-0" 
         allowfullscreen="" 
         loading="lazy" 
         referrerpolicy="no-referrer-when-downgrade">
@@ -526,12 +666,12 @@
   </section>
 
   <!-- FOOTER -->
-  <footer class="bg-gray-900 text-gray-400 text-xs py-8 border-t border-gray-800">
-    <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
+  <footer class="bg-gray-900 text-gray-400 text-xs py-6 border-t border-gray-800">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-3 text-center sm:text-left">
       <div>
         <p>&copy; 2026 Small Business Academy (G-Stuff Trading Pty Ltd). All rights reserved.</p>
       </div>
-      <div class="flex gap-6">
+      <div class="flex gap-4">
         <a href="#about" class="hover:text-white transition">About Us</a>
         <a href="#offerings" class="hover:text-white transition">Offerings</a>
         <a href="#contact" class="hover:text-white transition">Contact Us</a>
@@ -546,22 +686,21 @@
         <i data-lucide="x" class="w-5 h-5"></i>
       </button>
 
-      <div class="p-6">
+      <div class="p-5 sm:p-6">
         <span id="promo-badge" class="inline-block bg-sba-burgundy/10 text-sba-burgundy font-bold text-[10px] uppercase px-2.5 py-1 rounded-full mb-2">Notice</span>
-        <h3 id="promo-title" class="text-xl font-extrabold text-gray-900 mb-2">Latest SBA Announcement</h3>
+        <h3 id="promo-title" class="text-lg sm:text-xl font-extrabold text-gray-900 mb-2">Latest SBA Announcement</h3>
         
-        <div class="my-4 overflow-hidden rounded-md border border-gray-200 bg-gray-100 flex items-center justify-center min-h-[160px]">
-          <img id="promo-img" src="" alt="Promotional Poster" class="max-h-64 object-contain w-full">
+        <div class="my-3 overflow-hidden rounded-md border border-gray-200 bg-gray-100 flex items-center justify-center min-h-[140px]">
+          <img id="promo-img" src="" alt="Promotional Poster" class="max-h-56 object-contain w-full">
         </div>
 
         <p id="promo-desc" class="text-xs text-gray-600 mb-4 leading-relaxed"></p>
 
-        <!-- Modal Action Buttons (Enquire & Download Poster) -->
-        <div class="grid grid-cols-2 gap-3">
-          <a id="promo-download-btn" href="#" download class="flex items-center justify-center gap-1.5 bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold py-2.5 px-3 rounded-md transition text-xs border border-gray-300">
-            <i data-lucide="download" class="w-3.5 h-3.5 text-sba-burgundy"></i> Download Poster
+        <div class="grid grid-cols-2 gap-2.5">
+          <a id="promo-download-btn" href="#" download class="flex items-center justify-center gap-1.5 bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold py-2 px-3 rounded transition text-xs border border-gray-300">
+            <i data-lucide="download" class="w-3.5 h-3.5 text-sba-burgundy"></i> Download
           </a>
-          <a id="promo-btn" href="#contact" onclick="closePromoModal()" class="flex items-center justify-center bg-sba-burgundy hover:bg-sba-darkburgundy text-white font-bold py-2.5 px-3 rounded-md transition text-xs shadow">
+          <a id="promo-btn" href="#contact" onclick="closePromoModal()" class="flex items-center justify-center bg-sba-burgundy hover:bg-sba-darkburgundy text-white font-bold py-2 px-3 rounded transition text-xs shadow">
             Enquire Now
           </a>
         </div>
@@ -569,9 +708,13 @@
     </div>
   </div>
 
-  <!-- EMBEDDED JAVASCRIPT CONTROLLERS -->
   <script>
     lucide.createIcons();
+
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+    }
 
     const wheelData = [
       {
@@ -617,7 +760,6 @@
       lucide.createIcons();
     }
 
-    // Dynamic CMS Fetcher for Promotional Modal (Powered by Decap CMS via /admin)
     async function initPromotionalModal() {
       try {
         const response = await fetch('./data/promotions.json');
@@ -634,12 +776,10 @@
           
           const posterUrl = promoConfig.posterImageUrl || "#";
           
-          // Wire up modal download button
           const downloadBtn = document.getElementById('promo-download-btn');
           downloadBtn.href = posterUrl;
           downloadBtn.setAttribute('download', 'SBA-Promotional-Poster');
 
-          // Wire up top nav download brochure button
           const navDownloadBtn = document.getElementById('nav-download-brochure');
           if (navDownloadBtn) {
             navDownloadBtn.href = posterUrl;
@@ -667,7 +807,6 @@
     });
   </script>
 
-  <!-- Netlify Identity Redirection Script (Handles Email Invites & Redirects to /admin) -->
   <script>
     if (window.netlifyIdentity) {
       window.netlifyIdentity.on("init", user => {
