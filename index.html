@@ -18,6 +18,8 @@
               burgundy: '#800020',    // Rich, Clear Primary Brand Burgundy
               darkburgundy: '#5c0017',// Hover state burgundy
               black: '#111111',       // Corporate Black for footers/top bars
+              blue: '#800020',        // SBA Brand Accent Blue
+              darkblue: '#1d1e40af',    // Darker Blue for hover/contrast
               gray: '#f3f4f6',        // Clean Light Gray Container
               darkgray: '#374151',    // Text dark gray
               light: '#ffffff'        // Pure Clean White Background
@@ -84,20 +86,16 @@
   <!-- MAIN NAVIGATION BAR -->
   <nav class="sticky top-0 z-40 bg-white shadow-md border-b border-gray-200">
     <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 flex justify-between items-center h-20 sm:h-24">
-      <div class="flex flex-col py-1">
+      <div class="flex items-center py-1">
         <a href="#" class="flex items-center">
-          <img src="./logo.png" alt="Small Business Academy Logo" class="h-10 sm:h-14 w-auto object-contain transition-transform hover:scale-105">
+          <img src="./logo.png" alt="Small Business Academy Logo" class="h-14 sm:h-20 w-auto object-contain transition-transform hover:scale-105">
         </a>
-        <span class="text-[9px] sm:text-[11px] font-semibold text-gray-700 italic tracking-wide mt-0.5">
-          “Constructing <span class="uppercase font-bold">YOUR</span> brighter future”
-        </span>
       </div>
 
       <!-- Desktop Links -->
-      <div class="hidden lg:flex items-center space-x-5 font-medium text-xs md:text-sm text-gray-700">
+      <div class="hidden lg:flex items-center space-x-6 font-medium text-xs md:text-sm text-gray-700">
         <a href="#home" class="text-sba-burgundy font-bold">Home</a>
         <a href="#about" class="hover:text-sba-burgundy transition">About Us</a>
-        <a href="#leadership" class="hover:text-sba-burgundy transition">Leadership</a>
         <a href="#offerings" class="hover:text-sba-burgundy transition">Offerings</a>
         <a href="#accreditations" class="hover:text-sba-burgundy transition">Accreditations</a>
         <a href="#graduates" class="hover:text-sba-burgundy transition">Graduates</a>
@@ -127,7 +125,6 @@
     <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-gray-200 px-4 pt-2 pb-4 space-y-2 text-sm font-medium">
       <a href="#home" onclick="toggleMobileMenu()" class="block py-2 text-sba-burgundy font-bold border-b border-gray-100">Home</a>
       <a href="#about" onclick="toggleMobileMenu()" class="block py-2 text-gray-700 border-b border-gray-100">About Us</a>
-      <a href="#leadership" onclick="toggleMobileMenu()" class="block py-2 text-gray-700 border-b border-gray-100">Leadership</a>
       <a href="#offerings" onclick="toggleMobileMenu()" class="block py-2 text-gray-700 border-b border-gray-100">Offerings & Pathways</a>
       <a href="#accreditations" onclick="toggleMobileMenu()" class="block py-2 text-gray-700 border-b border-gray-100">Accreditations</a>
       <a href="#graduates" onclick="toggleMobileMenu()" class="block py-2 text-gray-700 border-b border-gray-100">Our Graduates</a>
@@ -147,7 +144,7 @@
           Constructing <span class="uppercase">YOUR</span> brighter future <span class="text-sba-burgundy uppercase">TOGETHER WITH US</span>
         </h1>
         <p class="text-gray-600 text-sm sm:text-base leading-relaxed">
-          Competence = Artisan Trade and Construction Skills + Entrepreneurship. Empowering South Africans through hands-on technical trades, OHS certification, and emerging contractor development in Durban CBD.
+          The School of Construction Trades and Trade Test Centre, Occupational Health & Safety Training, Skills Development Practitioner Training, and Entrepreneurship Skills Development.
         </p>
 
         <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-3 pt-2">
@@ -201,23 +198,23 @@
   </section>
 
   <!-- INDUSTRY IMPACT STAT STRIP -->
-  <section class="bg-sba-black text-white py-8 border-y border-gray-800">
+  <section class="bg-sba-blue text-white py-8 border-y border-blue-900">
     <div class="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
       <div>
-        <span class="text-xl sm:text-2xl md:text-3xl font-extrabold text-sba-burgundy">R160 Billion</span>
-        <p class="text-[11px] sm:text-xs text-gray-400 mt-1">SA Construction GDP Impact</p>
+        <span class="text-xl sm:text-2xl md:text-3xl font-extrabold text-white">R160 Billion</span>
+        <p class="text-[11px] sm:text-xs text-blue-100 mt-1">SA Construction GDP Impact</p>
       </div>
       <div>
-        <span class="text-xl sm:text-2xl md:text-3xl font-extrabold text-sba-burgundy">1.3 Million</span>
-        <p class="text-[11px] sm:text-xs text-gray-400 mt-1">Industry Workforce Support</p>
+        <span class="text-xl sm:text-2xl md:text-3xl font-extrabold text-white">1.3 Million</span>
+        <p class="text-[11px] sm:text-xs text-blue-100 mt-1">Industry Workforce Support</p>
       </div>
       <div>
-        <span class="text-xl sm:text-2xl md:text-3xl font-extrabold text-sba-burgundy">4,200m²+</span>
-        <p class="text-[11px] sm:text-xs text-gray-400 mt-1">College & Practical Training Floor</p>
+        <span class="text-xl sm:text-2xl md:text-3xl font-extrabold text-white">4,200m²+</span>
+        <p class="text-[11px] sm:text-xs text-blue-100 mt-1">College & Practical Training Floor</p>
       </div>
       <div>
-        <span class="text-xl sm:text-2xl md:text-3xl font-extrabold text-sba-burgundy">3-Year Audited</span>
-        <p class="text-[11px] sm:text-xs text-gray-400 mt-1">DHET & SETA Quality Assurance</p>
+        <span class="text-xl sm:text-2xl md:text-3xl font-extrabold text-white">3-Year Audited</span>
+        <p class="text-[11px] sm:text-xs text-blue-100 mt-1">DHET & SETA Quality Assurance</p>
       </div>
     </div>
   </section>
@@ -277,47 +274,6 @@
             <span class="px-3 py-1 bg-sba-burgundy/10 text-sba-burgundy rounded-full">Projector Equipped</span>
             <span class="px-3 py-1 bg-sba-burgundy/10 text-sba-burgundy rounded-full">Fully Moderated</span>
           </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- MANAGEMENT & LEADERSHIP SECTION -->
-  <section id="leadership" class="py-12 md:py-16 px-4 max-w-7xl mx-auto">
-    <div class="text-center max-w-3xl mx-auto mb-10">
-      <span class="text-sba-burgundy text-xs font-bold uppercase tracking-wider">Executive Governance</span>
-      <h2 class="text-2xl sm:text-3xl font-extrabold text-gray-900 mb-2 mt-1">Meet Our Leadership Team</h2>
-      <p class="text-gray-600 text-sm">Astute business creators, managers, and educators guiding SBA's strategic vision and quality assurance.</p>
-    </div>
-
-    <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-      <!-- Leader 1: Amos Mtshali -->
-      <div class="bg-white rounded-xl border border-gray-200 shadow-lg overflow-hidden flex flex-col sm:flex-row items-center p-5 sm:p-6 gap-5">
-        <div class="w-32 h-40 sm:w-36 sm:h-44 flex-shrink-0 bg-gray-100 rounded-lg overflow-hidden shadow-inner border border-gray-200">
-          <img src="./amos matshali 2.png" alt="Mr. M.A. Mtshali" class="w-full h-full object-cover object-top">
-        </div>
-        <div class="space-y-1.5 text-center sm:text-left">
-          <span class="inline-block bg-sba-burgundy/10 text-sba-burgundy text-[10px] font-bold px-2.5 py-0.5 rounded uppercase tracking-wider">Centre Manager</span>
-          <h3 class="text-lg sm:text-xl font-bold text-gray-900">Mr. M.A. Mtshali</h3>
-          <p class="text-xs font-semibold text-sba-burgundy">B.Compt (Accounting and Auditing)</p>
-          <p class="text-xs text-gray-600 leading-relaxed pt-1">
-            Oversees institutional operations, financial governance, auditing compliance, and training centre administration at our Durban CBD campus.
-          </p>
-        </div>
-      </div>
-
-      <!-- Leader 2: Sfiso Nduli -->
-      <div class="bg-white rounded-xl border border-gray-200 shadow-lg overflow-hidden flex flex-col sm:flex-row items-center p-5 sm:p-6 gap-5">
-        <div class="w-32 h-40 sm:w-36 sm:h-44 flex-shrink-0 bg-gray-100 rounded-lg overflow-hidden shadow-inner border border-gray-200">
-          <img src="./sfiso nduli 2.png" alt="Mr. S.J. Nduli" class="w-full h-full object-cover object-top">
-        </div>
-        <div class="space-y-1.5 text-center sm:text-left">
-          <span class="inline-block bg-sba-burgundy/10 text-sba-burgundy text-[10px] font-bold px-2.5 py-0.5 rounded uppercase tracking-wider">Skills Development Manager</span>
-          <h3 class="text-lg sm:text-xl font-bold text-gray-900">Mr. S.J. Nduli</h3>
-          <p class="text-xs font-semibold text-sba-burgundy">Post Graduate In Entrepreneurship</p>
-          <p class="text-xs text-gray-600 leading-relaxed pt-1">
-            Directs artisan development pathways, strategic stakeholder partnerships, enterprise mentorship, and SETA-aligned curriculum delivery.
-          </p>
         </div>
       </div>
     </div>
