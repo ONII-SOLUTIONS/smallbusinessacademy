@@ -59,6 +59,11 @@
       -webkit-mask-image: linear-gradient(to bottom, black 0%, black 88%, transparent 100%);
       mask-image: linear-gradient(to bottom, black 0%, black 88%, transparent 100%);
     }
+
+    /* Keeps anchor targets clear of the sticky navbar on desktop & mobile */
+    section[id] {
+      scroll-margin-top: 6.5rem;
+    }
   </style>
 </head>
 <body class="bg-sba-light text-sba-darkgray font-sans antialiased selection:bg-sba-burgundy selection:text-white overflow-x-hidden">
@@ -105,9 +110,9 @@
 
       <!-- Optimized Slim Action Buttons -->
       <div class="flex items-center gap-2">
-        <a id="nav-download-brochure" href="#" download class="inline-flex items-center gap-1 bg-gray-100 hover:bg-gray-200 text-gray-800 text-[11px] sm:text-xs font-semibold py-2 px-2.5 sm:px-3 rounded shadow-sm transition border border-gray-300">
+        <a id="nav-download-brochure" href="./SBA%202026%20BROCHURE.pdf" download="SBA 2026 BROCHURE.pdf" class="inline-flex items-center gap-1 bg-gray-100 hover:bg-gray-200 text-gray-800 text-[11px] sm:text-xs font-semibold py-2 px-2.5 sm:px-3 rounded shadow-sm transition border border-gray-300">
           <i data-lucide="download" class="w-3.5 h-3.5 text-sba-burgundy"></i>
-          <span class="hidden sm:inline">Brochure</span>
+          <span id="nav-brochure-label" class="hidden sm:inline">Brochure</span>
         </a>
         <a href="./SBA%202026%20BUSINESS%20PROFILE.pdf" download="SBA 2026 BUSINESS PROFILE.pdf" class="inline-flex items-center gap-1 bg-sba-burgundy hover:bg-sba-darkburgundy text-white text-[11px] sm:text-xs font-semibold py-2 px-2.5 sm:px-3 rounded shadow transition">
           <i data-lucide="file-text" class="w-3.5 h-3.5"></i>
@@ -719,6 +724,33 @@
       lucide.createIcons();
     }
 
+    async function initBrochureButton() {
+      try {
+        const response = await fetch('./data/brochure.json');
+        if (!response.ok) return;
+
+        const brochureConfig = await response.json();
+        const navDownloadBtn = document.getElementById('nav-download-brochure');
+        const navBrochureLabel = document.getElementById('nav-brochure-label');
+
+        if (navDownloadBtn && brochureConfig && brochureConfig.active !== false) {
+          if (brochureConfig.fileUrl) {
+            navDownloadBtn.href = brochureConfig.fileUrl;
+          }
+          if (brochureConfig.downloadName) {
+            navDownloadBtn.setAttribute('download', brochureConfig.downloadName);
+          } else {
+            navDownloadBtn.setAttribute('download', '');
+          }
+          if (navBrochureLabel && brochureConfig.label) {
+            navBrochureLabel.innerText = brochureConfig.label;
+          }
+        }
+      } catch (err) {
+        console.log("No brochure config found or fetch skipped; using default brochure link.");
+      }
+    }
+
     async function initPromotionalModal() {
       try {
         const response = await fetch('./data/promotions.json');
@@ -733,16 +765,13 @@
           document.getElementById('promo-img').alt = promoConfig.altText || "Promotional Poster";
           document.getElementById('promo-desc').innerText = promoConfig.description || "";
           
-          const posterUrl = promoConfig.posterImageUrl || "#";
-          
+          const downloadUrl = promoConfig.downloadUrl || promoConfig.posterImageUrl || "#";
           const downloadBtn = document.getElementById('promo-download-btn');
-          downloadBtn.href = posterUrl;
-          downloadBtn.setAttribute('download', 'SBA-Promotional-Poster');
-
-          const navDownloadBtn = document.getElementById('nav-download-brochure');
-          if (navDownloadBtn) {
-            navDownloadBtn.href = posterUrl;
-            navDownloadBtn.setAttribute('download', 'SBA-Course-Poster');
+          downloadBtn.href = downloadUrl;
+          if (promoConfig.downloadFileName) {
+            downloadBtn.setAttribute('download', promoConfig.downloadFileName);
+          } else {
+            downloadBtn.setAttribute('download', '');
           }
 
           document.getElementById('promo-btn').innerText = promoConfig.actionText || "Enquire Now";
@@ -762,6 +791,7 @@
     }
 
     window.addEventListener('DOMContentLoaded', () => {
+      initBrochureButton();
       initPromotionalModal();
     });
   </script>
